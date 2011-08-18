@@ -1,0 +1,67 @@
+<div id="analytics-dashboard" class="clearfix">
+  <div id="analytics-header">Stats for <%= (Date.today - 30).strftime("%d/%m/%y") %> - <%= Date.today.strftime("%d/%m/%y") %></div>
+  <div id="analytics-traffic">
+    <h4>Traffic</h4>
+    <div id="analytics-graph">
+      <script type="text/javascript">
+        jQuery(document).ready(function($){
+          $("#analytics-graph").plotTraffic(<%= Date.today.strftime("[%Y,%m,%d]") %>,
+                                           [<%= generate_flot_data(@traffic).inspect %>]);
+        });
+      </script>
+      <noscript>Please enable Javascript for this traffic report to work correctly.</noscript>
+    </div>
+  </div>
+  <% unless @misc_data.nil? %>
+  <div class="clearfix" id="analytics-misc">
+    <ul>
+      <li>
+        <h4>Visits (30 days)</h4><div><%= number_with_delimiter(@misc_data.visits.to_i) %></div>
+      </li>
+      <li>
+        <h4>Page views</h4><div><%= number_with_delimiter(@misc_data.pageviews.to_i) %></div>
+      </li>
+      <li>
+        <h4>Pages/visit</h4><div><%= (@misc_data.pageviews.to_i / @misc_data.visits.to_f).round(2) %></div>
+      </li>
+      <li>
+        <h4>Bounce rate</h4><div><%= ((@misc_data.bounces.to_i * 100) / @misc_data.visits.to_f).round(2) %>%</div>
+      </li>
+      <li>
+        <h4>Time on site (avg.)</h4><div><%= @misc_data.time_on_site.to_i / @misc_data.visits.to_i %> secs</div>
+      </li>
+      <li class="last">
+        <h4>New visits</h4><div><%= ((@misc_data.new_visits.to_i * 100) / @misc_data.visits.to_f).round(2) %>%</div>
+      </li>
+    </ul>
+  </div>
+  <% end %>
+  <div id="analytics-page-views">
+    <h4>Top pages</h4>
+    <table cellpadding="0" cellspacing="0">
+      <tr>
+        <th align="left" width="293">Page</td>
+        <th align="left" width="98">Views</td>
+      </tr>
+      <% @page_views.each_with_index do |page, index| %>
+      <tr <%= "class=\"highlight\"" if index % 2 == 1 %>>
+        <td><a href="<%= page.page_path %>"><%= page.page_path %></a></td><td><%= page.pageviews %></td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+  <div id="analytics-search-terms">
+    <h4>Search terms</h4>
+    <table cellpadding="0" cellspacing="0">
+      <tr>
+        <th align="left" width="293">Keywords</td>
+        <th align="left" width="98">Visits</td>
+      </tr>
+      <% @terms.each_with_index do |term, index| %>
+      <tr <%= "class=\"highlight\"" if index % 2 == 1 %>>
+        <td><%= term.keyword %></td><td><%= term.visits %></td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

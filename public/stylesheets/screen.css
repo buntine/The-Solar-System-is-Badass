@@ -1,0 +1,52 @@
+@import url('reset.css');
+
+
+/* ---------- Layout Styles ---------- */
+body { color: #3f3f3f; font:62.5%/1.6em Verdana, Arial, Helvetica, sans-serif; }
+
+#container { font-size:1.2em; width:960px; margin: 0 auto; }
+#footer{ display: block; clear: both; }
+
+
+
+/* ---------- Common Styles ---------- */
+a { text-decoration:underline; color:#fdb63b; }
+a:hover { text-decoration: none; }
+h1, h2, h3 { padding: 0 0 10px 0; font-weight:bold; color: #333; }
+h1 {color: #3f87c0; font-size:1.7em; }
+h2 { font-size: 1.5em; }
+h3 { font-size: 1.2em; font-weight: bold; }
+h4 { font-size: 1.0em; }
+strong { font-weight: bold; }
+hr { border: 0; border-bottom: 1px solid #e5e5e5; margin: 10px 0; }
+p { margin: 0px 0 10px 0; }
+ul { margin: 10px 0px; list-style: disc; }
+ol { list-style: decimal; }
+
+.clear { display: block; clear: both; }
+.hidden { display: none; }
+.top { text-align: right; font-size: 0.9em; padding: 10px; }
+
+
+
+/* ---------- Main Navigation Styles ---------- */
+ul#navigation { margin:0; list-style: none; }
+	ul#navigation li { float: left; display:inline; }
+		ul#navigation li a { display:block; }
+		ul#navigation li a:hover, ul#navigation li a.selected { background-position: 0 -57px !important; }
+
+
+
+
+/*---------- FoRMS STYLeS	----------*/
+#contactform { display: block; }
+  #contactform ul { margin: 0; list-style: none; }
+    #contactform ul li { display: block; }
+      #contactform ul li label { width: 108px; display: inline-block; vertical-align: top; }
+      #contactform ul li input { padding: 3px 5px; width: 251px; border: 0; }
+      #contactform ul li textarea { padding: 2px 5px; border: 0; width: 250px; }
+       #contactform ul li.buttons input { padding: 0; }
+
+
+	.errorExplanation { margin: 50px 0 0 0; }
+	.errorExplanation ul li { color: #ee1d25; margin: 0 0 0 20px; font-style: italic; }

@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>{#upload_dlg.title}</title>
+    <script type="text/javascript" src="/javascripts/tiny_mce/plugins/upload/../../tiny_mce_popup.js"></script>
+    <script type="text/javascript" src="/javascripts/tiny_mce/plugins/upload/js/dialog.js"></script>
+  </head>
+  <body>
+
+    <% form_for @tiny_mce_image, :html => {:enctype => "multipart/form-data"} do |f| %>
+      <%= error_messages_for "tiny_mce_image" %>
+
+      <p>Select an image to insert into your content</p>
+      <p>
+        Description:
+        <%= f.text_field :alt, :class => "text" %>
+      </p>
+      <p>
+        Image:
+        <%= f.file_field :file, :class => "text" %>
+      </p>
+
+      <div class="mceActionPanel">
+        <input type="submit" id="insert" name="insert" value="{#upload_dlg.upload}" />
+        <input type="button" id="cancel" name="cancel" value="{#cancel}" onclick="tinyMCEPopup.close();" />
+      </div>
+    <% end %>
+
+  </body>
+</html>

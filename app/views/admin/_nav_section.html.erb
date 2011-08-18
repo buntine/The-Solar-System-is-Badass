@@ -1,0 +1,12 @@
+<li>
+  <span><%= title %></span>
+  <ul>
+    <% children.each do |nav_item| %>
+      <% if nav_item.is_a?(Array) %>
+      <li><a href="<%= nav_item[0] %>"><%= nav_item[1] %></a></li>
+      <% else %>
+      <li><a href="<%= cms_nav_url(nav_item) %>"><%= nav_item.nav_title %></a></li>
+      <% end %>
+    <% end %>
+  </ul>
+</li>

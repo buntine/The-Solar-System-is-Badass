@@ -1,0 +1,22 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>{#upload_dlg.title}</title>
+    <script type="text/javascript" src="/javascripts/tiny_mce/plugins/upload/../../tiny_mce_popup.js"></script>
+    <script type="text/javascript" src="/javascripts/tiny_mce/plugins/upload/js/dialog.js"></script>
+  </head>
+  <body>
+
+  <form onsubmit="UploadDialog.insert();return false;" action="#">
+      <p>Your upload has completed.</p>
+
+      <div class="mceActionPanel">
+        <input type="hidden" id="filename" value="<%= url_for_file_column @tiny_mce_image, "file" %>" />
+        <input type="hidden" id="alt" value="<%= @tiny_mce_image.alt %>" />
+        <input type="submit" id="insert" name="insert" value="{#insert}" onclick="UploadDialog.insert();" />
+      </div>
+    </form>
+
+  </body>
+</html>
+

@@ -1,0 +1,20 @@
+Description:
+    Explain the generator
+
+Example:
+    ./script/generate tiny_mce_upload gogogenerate
+
+    This will create:
+      app/controllers/tiny_mce_images_controller.rb
+      app/models/tiny_mce_image.rb
+      app/views/tiny_mce_images/create.html.erb
+      app/views/tiny_mce_images/new.html.erb
+      db/migrate/20101012080655_create_tiny_mce_images.rb
+      public/javascripts/tiny_mce/plugins/upload/editor_plugin_src.js
+      public/javascripts/tiny_mce/plugins/upload/img/upload.png
+      public/javascripts/tiny_mce/plugins/upload/js/dialog.js
+      public/javascripts/tiny_mce/plugins/upload/langs/en.js
+      public/javascripts/tiny_mce/plugins/upload/langs/en_dlg.js
+
+    You need to add the route:
+      map.resources :tiny_mce_images

@@ -1,0 +1,94 @@
+
+01. Automatic CMS navigation
+------------------------------
+
+
+Implementation
+----------------
+
+The navigation system in the CMS is represented as a data-structure we store in the AdminController
+class. By default, it should be easier to work within this framework rather than writing your own HTML
+navigation.
+
+The return value of the "cms_nav" method in the AdminController class (./app/controllers/admin_controller.rb)
+is used to generate a navigation system. It is left up to the programmer to manipulate this data structure
+to fit their application.
+
+Note the following:
+
+ - The return value should be an array.
+ - Each element of the array should be:
+   - A further array. This is used over a hash so we can maintain explicit order.
+     - The array should be in the format of ["Section title", Admin::SomeController, Admin::AnotherController]
+       - The URL and title for each class will be derived automatically.
+       - Overload the "self.nav_title" class method to provide a custom name for any CMS section.
+     - You can also use a further two-element array for custom links: ["Section title", ["/my_url", "Link title"]]
+   - A class of an CMS controller, e.g: Admin::ProductsController:
+     - This assumes the given controller has a partial named "_nav.html.erb" in it's views directory. It will be rendered.
+     - Otherwise, the default nav partial will be rendered.
+
+
+Example
+---------
+
+As an example, lets say you have a CMS with a few controllers:
+
+  - admin/ProductsController
+  - admin/ProductCategoriesController 
+  - admin/ArticlesController 
+  - admin/PagesController 
+  - admin/CheesesController
+
+You'd like to display the sections like so in the navigation:
+
+  Product Catalogue
+    Products
+    Categories
+  Latest News
+    Articles
+  Our Cheeses
+    Export all
+  Content
+    Header content
+    Page content
+
+To achieve this, I'd suggest the following:
+
+ ./app/controllers/admin_controller.rb:
+    ...
+
+    # Here we directly return an array containing our desired navigation structure.
+    # You can see we have five sections, two of which have their own partial overrides.
+    # The AdminsController has a pre-built partial override and should be left as-is.
+    def cms_nav
+      [["Product catalogue", [Admin::ProductsController, Admin::ProductCategoriesController]],
+       ["Latest news", [Admin::ArticlesController]],
+       Admin::CheesesController,
+       ["Content", [["/admin/pages/headers", "Header content"], Admin::PagesController]],
+       Admin::AdminsController]
+    end
+
+    ...
+
+ ./app/views/admin/cheeses/_new.html.erb:
+
+    <li>
+      <span>Our cheeses</span>
+      <ul>
+        <li><a href="/admin/cheeses/export">Export all</a></li>
+      </ul>
+    </li>
+
+ ./app/controllers/admin/pages_controller.rb:
+
+    ...
+
+    def self.nav_title
+      "Page content"
+    end
+
+    ...
+
+This is all we need to generate the navigation as mocked above. We just needed to provide a partial override (by
+copying the _nav.html.erb partial into the correct directory) for the Cheeses section and by overloading the
+"nav_title" method in the Pages controller. The remaining sections will derive the correct names automatically.

@@ -1,0 +1,18 @@
+Tiny-mce-upload
+===============
+
+This plugin will let you add a button to tiny mce for uploading and inserting
+an image directly into the content. It uses a rails model to keep track of the
+images. If you want to set a max size it should be done in the model using file
+column. The user will be able to further resize their image using html in Tiny
+MCE. There is an admin area for maintaining uploaded images, allowing you to
+remove orphaned pictures.
+
+
+Example
+=======
+
+Example goes here.
+
+
+Copyright (c) 2010 Hard Hat Digital, released under the MIT license

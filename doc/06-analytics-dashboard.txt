@@ -1,0 +1,14 @@
+
+06. Google Analytics dashboard
+------------------
+
+Implementation
+----------------
+
+The template ships with pre-installed support for integrating Google analytics information into the landing page of the CMS.
+
+By default, the analytics dashboard will not display because the template does not know which analytics account and profile to request information for.
+
+To enable the dashboard, simply provide a analytics username, password and profile ID in the AppConfig file (./config/app_cnofig.rb).
+
+That's it! The dashboard should appear on login to the CMS.
