@@ -16,4 +16,6 @@ $(document).ready(function(){
     }
   });
 
+  $(".planet").planet();
+
 });
