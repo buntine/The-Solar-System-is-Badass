@@ -54,13 +54,13 @@ ul#navigation { margin:0; list-style: none; }
 /*----------- Parallax ----------*/
 section{
   display: block; 
-  height: 4000px; 
+  height: 3000px; 
   overflow: hidden;
   position: relative;
 }
 section .background{
   display: block;
-  height: 4000px;
+  height: 3000px;
   background: url('/images/background2.jpg') top left repeat-y;
   position: absolute;
   width: 100%;
@@ -68,19 +68,23 @@ section .background{
 
 .planet{
   display: block;
-  height: 4000px;
+  height: 3000px;
   margin: 0 auto;
   position: absolute;
   top: 0;
   width: 100%;
 }
 
-.planet.mercury{background: url(/images/planets/mercury.png) 0 0 no-repeat fixed; z-index: 27; background-position: 5% 600px;}
-.planet.venus{background: url(/images/planets/venus.png) 0 0 no-repeat fixed; z-index: 24; background-position: 10% 500px;}
-.planet.earth{background: url(/images/planets/earth.png) 0 0 no-repeat fixed; z-index: 21; background-position: 20% 460px;}
-.planet.mars{background: url(/images/planets/mars.png) 0 0 no-repeat fixed; z-index: 18; background-position: 30% 400px;}
-.planet.jupiter{background: url(/images/planets/jupiter.png) 0 0 no-repeat fixed; z-index: 15; background-position: 45% 340px;}
-.planet.saturn{background: url(/images/planets/saturn.png) 0 0 no-repeat fixed; z-index: 12; background-position: 60% 290px;}
-.planet.uranus{background: url(/images/planets/uranus.png) 0 0 no-repeat fixed; z-index: 9; background-position: 70% 250px;}
-.planet.neptune{background: url(/images/planets/neptune.png) 0 0 no-repeat fixed; z-index: 6; background-position: 80% 230px;}
-.planet.pluto{background: url(/images/planets/pluto.png) 0 0 no-repeat fixed; z-index: 3; background-position: 85% 170px;}
+.planet.mercury{background: url(/images/planets/mercury.png) 0 0 no-repeat fixed; z-index: 27; background-position: 65% 1090px;}
+.planet.venus{background: url(/images/planets/venus.png) 0 0 no-repeat fixed; z-index: 24; background-position: 78% 930px;}
+.planet.earth{background: url(/images/planets/earth.png) 0 0 no-repeat fixed; z-index: 21; background-position: 72% 800px;}
+.planet.mars{background: url(/images/planets/mars.png) 0 0 no-repeat fixed; z-index: 18; background-position: 88% 680px;}
+.planet.jupiter{background: url(/images/planets/jupiter.png) 0 0 no-repeat fixed; z-index: 15; background-position: 75% 550px;}
+.planet.saturn{background: url(/images/planets/saturn.png) 0 0 no-repeat fixed; z-index: 12; background-position: 90% 300px;}
+.planet.uranus{background: url(/images/planets/uranus.png) 0 0 no-repeat fixed; z-index: 9; background-position: 89% 140px;}
+.planet.neptune{background: url(/images/planets/neptune.png) 0 0 no-repeat fixed; z-index: 6; background-position: 75% 90px;}
+.planet.pluto{background: url(/images/planets/pluto.png) 0 0 no-repeat fixed; z-index: 3; background-position: 72% 30px;}
+
+.content { position: absolute; top: 30px; left: 30px; width: 50%; min-height: 2940px; background: #fff; -moz-border-radius: 20px; border-radius: 20px; }
+.content h1 { margin: 25px auto; text-indent: -9999px; height: 55px; background: url('/images/heading.png') top center no-repeat; }
+

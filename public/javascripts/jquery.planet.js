@@ -10,11 +10,10 @@
       var element = $(this);
       var adjuster = parseInt(element.attr("data-adjust"));
       var distance = parseFloat(element.attr("data-distance"));
-      var threshold = 7306376272.0;
       var threshold = 40000000.0;
       var window_height = $(window).height();
       var speed = threshold / distance;
-console.log(speed);
+//console.log($(this).attr("class") + ": " + speed);
  
       function newPos(x, height, pos, adjuster, inertia) {
         return x + "% " + (-((height + pos) - (height + adjuster)) * inertia)  + "px";
