@@ -52,13 +52,7 @@ ul#navigation { margin:0; list-style: none; }
 	.errorExplanation ul li { color: #ee1d25; margin: 0 0 0 20px; font-style: italic; }
 
 /*----------- Parallax ----------*/
-section{
-  display: block; 
-  height: 3000px; 
-  overflow: hidden;
-  position: relative;
-}
-section .background{
+.background{
   display: block;
   height: 3000px;
   background: url('/images/background2.jpg') top left repeat-y;

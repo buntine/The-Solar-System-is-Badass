@@ -10,17 +10,17 @@
       var element = $(this);
       var adjuster = parseInt(element.attr("data-adjust"));
       var distance = parseFloat(element.attr("data-distance"));
-      var threshold = 40000000.0;
-      var window_height = $(window).height();
-      var speed = threshold / distance;
+      var inertia = 40000000.0 / distance;
+      var height = $(window).height();
+      var x = $(element).css("backgroundPosition").split(/\D/)[0];
  
-      function newPos(x, height, pos, adjuster, inertia) {
+      function new_position(pos) {
         return x + "% " + (-((height + pos) - (height + adjuster)) * inertia)  + "px";
       } 
 
       $(window).scroll(function(){
         var current_pos = $(window).scrollTop();
-        var new_pos = newPos(element.attr("data-x"), window_height, current_pos, adjuster, speed);
+        var new_pos = new_position(current_pos);
 
         element.css("backgroundPosition", new_pos);
       });
