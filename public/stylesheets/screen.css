@@ -85,6 +85,15 @@ section .background{
 .planet.neptune{background: url(/images/planets/neptune.png) 0 0 no-repeat fixed; z-index: 6; background-position: 75% 90px;}
 .planet.pluto{background: url(/images/planets/pluto.png) 0 0 no-repeat fixed; z-index: 3; background-position: 72% 30px;}
 
-.content { position: absolute; top: 30px; left: 30px; width: 50%; min-height: 2940px; background: #fff; -moz-border-radius: 20px; border-radius: 20px; }
-.content h1 { margin: 25px auto; text-indent: -9999px; height: 55px; background: url('/images/heading.png') top center no-repeat; }
+#container { position: absolute; top: 0; left: 0; }
 
+.content { margin: 20px 20px 40px 20px; padding-bottom: 3px; font-size: 14px; width: 68%; background: #BDFCC9; -moz-border-radius: 20px; border-radius: 20px; -moz-box-shadow: 0px 0px 14px #BDFCC9; }
+.content h1 { margin: 25px auto 0 auto; padding: 0; text-indent: -9999px; height: 55px; }
+.content h2 { margin: 30px 0 5px 20px; }
+.content p { margin: 10px 20px 16px 20px; padding: 0; }
+.content img { margin: 12px 20px 12px 12px; float: right; border: 1px solid #000; }
+.content.universe h1 { background: url('/images/heading_universe.png') top center no-repeat; }
+.content.parallax h1 { background: url('/images/heading_parallax.png') top center no-repeat; }
+.content.infinity h1 { background: url('/images/heading_infinity.png') top center no-repeat; }
+
+a { color: blue; }

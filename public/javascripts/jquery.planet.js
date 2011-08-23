@@ -13,7 +13,6 @@
       var threshold = 40000000.0;
       var window_height = $(window).height();
       var speed = threshold / distance;
-//console.log($(this).attr("class") + ": " + speed);
  
       function newPos(x, height, pos, adjuster, inertia) {
         return x + "% " + (-((height + pos) - (height + adjuster)) * inertia)  + "px";
