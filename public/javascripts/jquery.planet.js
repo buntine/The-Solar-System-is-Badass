@@ -20,9 +20,7 @@
 
       $(window).scroll(function(){
         var current_pos = $(window).scrollTop();
-        var new_pos = new_position(current_pos);
-
-        element.css("backgroundPosition", new_pos);
+        element.css("backgroundPosition", new_position(current_pos));
       });
     });
   };
