@@ -55,7 +55,7 @@ ul#navigation { margin:0; list-style: none; }
 .background{
   display: block;
   height: 3000px;
-  background: url('/images/background2.jpg') top left repeat-y;
+  background: url('/images/background2.jpg') top left repeat-y fixed;
   position: absolute;
   width: 100%;
 }
