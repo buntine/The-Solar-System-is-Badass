@@ -16,6 +16,7 @@ $(document).ready(function(){
     }
   });
 
+  // Setup planets.
   setTimeout(function(){
     $(".planet").planet();
   }, 1000);
