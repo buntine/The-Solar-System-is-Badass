@@ -1,12 +1,12 @@
 --- 
 production: 
   encoding: utf8
+  username: planets
   adapter: mysql
-  username: 
-  database: 
-  pool: 5
+  database: planets_production
   host: localhost
-  password: 
+  pool: 5
+  password: OMIRJIIC
 development: 
   timeout: 5000
   adapter: sqlite3
