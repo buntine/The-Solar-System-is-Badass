@@ -16,6 +16,6 @@ $(document).ready(function(){
     }
   });
 
-  $(".planet").planet();
+  $(".planet").delay(100).planet();
 
 });
