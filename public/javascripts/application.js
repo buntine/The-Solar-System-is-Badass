@@ -17,7 +17,7 @@ $(document).ready(function(){
   });
 
   setTimeout(function(){
-  $(".planet").planet();
+    $(".planet").planet();
   }, 1000);
 
 });
