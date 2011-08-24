@@ -20,4 +20,13 @@ $(document).ready(function(){
     $(".planet").planet();
   }, 1000);
 
+  // Navigation animations.
+  $("#nav a").click(function(){
+    $("html, body").animate({
+      scrollTop: $($(this).attr("href") + "_section").offset().top - 70
+    }, 1500);
+
+    return false;
+  });
+
 });

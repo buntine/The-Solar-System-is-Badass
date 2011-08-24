@@ -14,14 +14,12 @@
       var height = $(window).height();
       var x = $(element).css("backgroundPosition").split(/\D/)[0];
  
-console.log($(element).css("backgroundPosition"));
       function new_position(pos) {
         return x + "% " + (-((height + pos) - (height + adjuster)) * inertia)  + "px";
       } 
 
       $(window).scroll(function(){
         var current_pos = $(window).scrollTop();
-console.log($(element).attr("class") + ": " + new_position(current_pos));
         element.css("backgroundPosition", new_position(current_pos));
       });
     });

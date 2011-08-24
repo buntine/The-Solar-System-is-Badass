@@ -1,5 +1,5 @@
 <div id="nav">
-  <a href="#universe">The Universe</a> - <a href="#parallax">Parallax</a> - <a href="#beyond">How I do it</a>
+  <a href="#universe">The Universe</a> - <a href="#parallax">Parallax</a> - <a href="#infinity">How I do it</a>
 </div>
 <div class="background"></div>
 <div class="planet pluto" data-distance="5906376272" data-adjust="4380"></div>
@@ -12,15 +12,15 @@
 <div class="planet venus" data-distance="108000000" data-adjust="2510"></div>
 <div class="planet mercury" data-distance="46000000" data-adjust="1255"></div>
 <div id="container">
-  <div class="content universe">
+  <div id="universe_section" class="content universe">
     <h1>The Universe is badass!</h1>
     <%= render :partial => "universe_content" %>
   </div>
-  <div class="content parallax">
+  <div id="parallax_section" class="content parallax">
     <h1>...And so is parallax</h1>
     <%= render :partial => "parallax_content" %>
   </div>
-  <div class="content infinity">
+  <div id="infinity_section" class="content infinity">
     <h1>To infinity and beyond!</h1>
     <%= render :partial => "infinity_content" %>
   </div>

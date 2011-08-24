@@ -75,14 +75,14 @@ ul#navigation { margin:0; list-style: none; }
 
 /*----------- Parallax ----------*/
 .background{
-  height: 3000px;
+  height: 2600px;
   background: url('/images/background.jpg') top left repeat-y fixed;
   width: 100%;
 }
 
 .planet{
   display: block;
-  height: 3000px;
+  height: 2600px;
   margin: 0 auto;
   position: absolute;
   top: 0;
