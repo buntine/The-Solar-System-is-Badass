@@ -14,7 +14,7 @@
       var height = $(window).height();
       var x = $(element).css("backgroundPosition").split(/\D/)[0];
  
-console.log($(element).attr("class") + ": " + inertia);
+console.log($(element).css("backgroundPosition"));
       function new_position(pos) {
         return x + "% " + (-((height + pos) - (height + adjuster)) * inertia)  + "px";
       } 
