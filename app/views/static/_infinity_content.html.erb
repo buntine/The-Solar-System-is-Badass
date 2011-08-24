@@ -1,1 +1,15 @@
 <p>So, how is it done?</p>
+<p>There are several ways of achieving a parallax effect, but the technique we are using here is to overlay <em>div</em> elements on the page and position their background images at fixed coordinates.</p>
+<p>Upon scrolling the document, we calculate new positions for the background images and move them accordingly. Items that are "closer" to the viewpoint should move faster than those that are further away.</p>
+<p>For example, the planet Earth is much closer to the viewpoint (let's assume we are the Sun) than the planet Neptune. In this demonstration, Earth will move at exactly <em>0.268</em> times the speed of the scolling window, whereas Neptune (because it is much further away) will travel at <em>0.008</em> times the speed. This value is the object's <em>inertia</em>, so the closer objects have greater inertia.</p>
+<p>So, if we scroll vertically down for <em>19  pixels</em>, Earth will move upwards <em>5.09 pixels</em> and Neptune will move only <em>0.15 pixels</em>.The values are the same, but negated, if we scroll upwards. As should be obvious, Neptune will stay in the document view for much longer than the Earth.</p>
+<p>The maths for calculating a new position is simple:</p>
+<p><b>-((h + p) - (h + a)) * i)</b></p>
+<p>Where:
+  <ul>
+    <li><b>h</b>: Document height</li>
+    <li><b>p</b>: Current offset</li>
+    <li><b>a</b>: Adjuster value</li>
+    <li><b>i</b>: Inertia</li>
+  </ul>
+</p>
