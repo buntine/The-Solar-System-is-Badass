@@ -3,9 +3,55 @@
 <p>Upon scrolling the document, we calculate new positions for the background images and move them accordingly. Items that are "closer" to the viewpoint should move faster than those that are further away.</p>
 <p>For example, the planet Earth is much closer to the viewpoint (let's assume we are the Sun) than the planet Neptune. In this demonstration, Earth will move at exactly <em>0.268</em> times the speed of the scolling window, whereas Neptune (because it is much further away) will travel at <em>0.008</em> times the speed. This value is the object's <em>inertia</em>, so the closer objects have greater inertia.</p>
 <p>So, if we scroll vertically down for <em>19  pixels</em>, Earth will move upwards <em>5.09 pixels</em> and Neptune will move only <em>0.15 pixels</em>. The offsets are the same, but negated, if we scroll upwards. As should be obvious, Neptune will stay in the document view for much longer than the Earth.</p>
+<h2>Calculation</h2>
 <p>The formula for calculating a new position is simple:</p>
 <p><b>-((h + p) - (h + a)) * i)</b></p>
 <p>Where <b>h</b> is the document height, <b>p</b> is the current offset, <b>a</b> is the adjuster value and <b>i</b> is the inertia.</p>
 <p>The two potentially confusing variables here are the adjuster value (<b>a</b>) and the inertia (<b>i</b>).</p>
 <p>The adjuster value is unique to each object. It's effectively the offset that will be apparent when the object will hit the top of the page. If all browsers jumped at the same intervals during scroll then we could calculate this value, but I recommend you just tinker with it until you get it right. I store it as an HTML5 data attribute on the <em>div</em> element itself.</p>
 <p>The inertia should be something between 1 (moves at same speed as scroll) and 0 (is totally stationary). In this example, I divide a number representing the planets distance from the Sun with a hard-coded threshold of 40,000,000 (a number slightly less than the distance in kilometers between the Sun and Mercury).</p>
+<h2>The Code</h2>
+<p>I've packaged the code into a jQuery plugin for shits and giggles. I have annotated it below:</p>
+<pre class="sh_javascript">
+(function($){
+  $.fn.planet = function(){
+    return this.each(function(){
+      var element = $(this);
+      var adjust = parseInt(element.attr("data-adjust"));
+      var distance = parseFloat(element.attr("data-distance"));
+
+      // We calculate the inertia by dividing the planet's average distance from
+      // the sun with a pre-defined threshold. In this case it is 40,000,000, which
+      // represents a distance which is somewhat less than the distance between the
+      // sun and Mercury. This value will always be between 0 and 1.
+      var inertia = 40000000.0 / distance;
+      var height = $(window).height();
+
+      // The x coordinate will not change, so we can just pull it out once and reuse
+      // it each time we reposition.
+      var x = $(element).css("backgroundPosition").split(/\D/)[0];
+ 
+      function new_position(pos) {
+        // From within this closure we have access to the variables we have defined
+        // above - even though they are in a separate scope. This prevents us from 
+        // passing the same parameters every time.
+        // Example output: "55% 245.23345px"
+        return x + "% " + (-((height + pos) - (height + adjust)) * inertia)  + "px";
+      } 
+
+      $(window).scroll(function(){
+        // We attach a new function to the windows scroll event that allows us
+        // to reposition the background position.
+        var current_pos = $(window).scrollTop();
+        element.css("backgroundPosition", new_position(current_pos));
+      });
+    });
+  };
+})(jQuery);
+</pre>
+<p>And to get the cogs turning, all we need to is:</p>
+<pre class="sh_javascript">
+$("some_selector").planet();
+</pre>
+<p>Take a look at the source code of this page to see how the whole thing comes together.</p>
+<p>Good luck, and have fun!</p>
