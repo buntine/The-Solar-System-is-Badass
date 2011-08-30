@@ -17,7 +17,7 @@ $(document).ready(function(){
   });
 
   $("#overlay").click(function(){
-    $(this).animate({opacity: 0}, 1000);
+    $(this).animate({opacity: 0}, 1000, function(){ $(this).hide();});
   });
 
   // Setup planets.

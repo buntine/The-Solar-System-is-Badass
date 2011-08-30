@@ -18,10 +18,30 @@ Shit to say
 
 - My example
   - No excuses for the design
-  - 
+  - Scroll up and down
+  - Demonstrate nav auto-scrolling
 
 - My code
+  - Works by overlaying divs on the page and positioning background images on them at fixed offsets.
+  - Upon scrolling the window, we calculate new positions for the background images.
+    - Images that are "closer" to the viewpoint should move at greater speeds.
+  - The maths is simple:
+    - h is the document height, p is the current offset, a is the adjuster value and i is the inertia.
+    - a is the offset that will be apparent as the object moves out of sight.
+      - browsers/monitors move at different intervals and so you should just tinker with it.
+      - I use HTML5 data attributes.
+    - i is the inertia of the object (or resistance to change) and should be between 0 (stationary) and 1 (same as scroll).
+  - Packaged into a jQuery plugin
+    - 14 lines of code!
 
 - Drawbacks / Warnings
+  - Yes, I've used this in production for McDonalds.
+  - It's a bit of a fad, get onto the bandwagon SOON.
+  - Ensure the designer understands that the display will be highly dynamic.
+    - Think about how the site will look as the user is scrolling (images covering text, etc)
 
 - Thanks
+  - github.com/buntine
+  - andrewbuntine.com
+  - hhd.com.au
+
