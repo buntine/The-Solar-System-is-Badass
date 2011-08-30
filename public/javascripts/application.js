@@ -16,6 +16,10 @@ $(document).ready(function(){
     }
   });
 
+  $("#overlay").click(function(){
+    $(this).animate({opacity: 0}, 1000);
+  });
+
   // Setup planets.
   setTimeout(function(){
     $(".planet").planet();

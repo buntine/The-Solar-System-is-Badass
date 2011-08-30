@@ -23,7 +23,7 @@ ol { list-style: decimal; }
   top: -20px;
   left: 0;
   background-color: #BCD2EE;
-  z-index: 100;
+  z-index: 89;
   text-align: center;
   -moz-border-radius: 20px;
   border-radius: 20px;
@@ -37,17 +37,20 @@ ol { list-style: decimal; }
   padding: 0 30px;
 }
 
+#wrap { z-index: 91; width: 100%; height: 100%; }
 
 #overlay {
   width: 100%;
   height: 100%;
-  background: #000 url('/images/background.jpg') bottom left no-repeat;
+  background: #000 url('/images/overlay.jpg') bottom left no-repeat;
+  z-index: 100;
+  position: absolute;
+  bottom: 0;
 }
 
 /*----------- Parallax ----------*/
 
 .planet{
-  display: block;
   height: 3300px;
   margin: 0 auto;
   position: absolute;
