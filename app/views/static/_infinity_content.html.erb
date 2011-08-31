@@ -5,7 +5,7 @@
 <p>So, if we scroll vertically down for <em>19  pixels</em>, Earth will move upwards <em>5.09 pixels</em> and Neptune will move only <em>0.15 pixels</em>. The offsets are the same, but negated, if we scroll upwards. As should be obvious, Neptune will stay in the document view for much longer than the Earth.</p>
 <h2>Calculation</h2>
 <p>The formula for calculating a new position is simple:</p>
-<p><b>-((h + p) - (h + a)) * i)</b></p>
+<p><span class="fat">-((h + p) - (h + a)) * i)</span></p>
 <p>Where <b>h</b> is the document height, <b>p</b> is the current offset, <b>a</b> is the adjuster value and <b>i</b> is the inertia.</p>
 <p>The two potentially confusing variables here are the adjuster value (<b>a</b>) and the inertia (<b>i</b>).</p>
 <p>The adjuster value is unique to each object. It's effectively the offset that will be apparent when the object will hit the top of the page. If all browsers jumped at the same intervals during scroll then we could calculate this value, but I recommend you just tinker with it until you get it right. I store it as an HTML5 data attribute on the <em>div</em> element itself.</p>

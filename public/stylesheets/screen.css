@@ -81,3 +81,5 @@ ol { list-style: decimal; }
 
 a { text-decoration: underline; color: blue; }
 a:hover { text-decoration: none; }
+
+.fat { font-weight: bold; font-size: 32px; display: block; margin: 30px 0; }
